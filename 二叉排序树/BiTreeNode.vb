@@ -27,7 +27,7 @@
             .Text = data.ToString()
             .AutoSize = True
             .BorderStyle = BorderStyle.FixedSingle
-            .Font = New Font("宋体", 10)
+            .Font = New Font("宋体", 14)
         End With
     End Sub
 End Class

@@ -5,6 +5,14 @@
         Me.BringToFront()
     End Sub
 
+    Public Shared Sub Sleep(ByVal Interval)
+        Dim __time As DateTime = DateTime.Now
+        Dim __Span As Int64 = Interval * 10000   '因为时间是以100纳秒为单位。   
+        While (DateTime.Now.Ticks - __time.Ticks < __Span)
+            Application.DoEvents()
+        End While
+    End Sub
+
     Private Function checkInput() As Boolean
         If Not IsNumeric(txtNumber.Text) Then
             MessageBox.Show("输入不是数字！", "别闹", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -80,5 +88,101 @@
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         AVLTree.destroy()
         CanvasForm.flash()
+    End Sub
+
+    Private Sub btnPreOrder_Click(sender As Object, e As EventArgs) Handles btnPreOrder.Click
+        Dim stack = New System.Collections.Stack
+        If AVLTree.root IsNot Nothing Then stack.Push(New ergodic(AVLTree.root, 0))
+        While stack.Count > 0
+            Dim now = stack.Peek
+            Select Case now.status
+                Case 0
+                    If now.node Is Nothing Then
+                        stack.Pop()
+                        Continue While
+                    End If
+                    CanvasForm.mark(now.node)
+                    Sleep(1000)
+                    now.node.labelOnCanvas.BackColor = Color.White
+                    now.status = 1
+                    stack.Pop()
+                    stack.Push(now)
+                    stack.Push(New ergodic(now.node.leftTree, 0))
+                Case 1
+                    now.status = 2
+                    stack.Pop()
+                    stack.Push(now)
+                    stack.Push(New ergodic(now.node.rightTree, 0))
+                Case 2
+                    stack.Pop()
+            End Select
+        End While
+    End Sub
+
+    Private Sub btnMidOrder_Click(sender As Object, e As EventArgs) Handles btnMidOrder.Click
+        Dim stack = New System.Collections.Stack
+        If AVLTree.root IsNot Nothing Then stack.Push(New ergodic(AVLTree.root, 0))
+        While stack.Count > 0
+            Dim now = stack.Peek
+            Select Case now.status
+                Case 0
+                    If now.node Is Nothing Then
+                        stack.Pop()
+                        Continue While
+                    End If
+                    now.status = 1
+                    stack.Pop()
+                    stack.Push(now)
+                    stack.Push(New ergodic(now.node.leftTree, 0))
+                Case 1
+                    CanvasForm.mark(now.node)
+                    Sleep(1000)
+                    now.node.labelOnCanvas.BackColor = Color.White
+                    now.status = 2
+                    stack.Pop()
+                    stack.Push(now)
+                    stack.Push(New ergodic(now.node.rightTree, 0))
+                Case 2
+                    stack.Pop()
+            End Select
+        End While
+    End Sub
+
+    Private Sub btnAfterOrder_Click(sender As Object, e As EventArgs) Handles btnAfterOrder.Click
+        Dim stack = New System.Collections.Stack
+        If AVLTree.root IsNot Nothing Then stack.Push(New ergodic(AVLTree.root, 0))
+        While stack.Count > 0
+            Dim now = stack.Peek
+            Select Case now.status
+                Case 0
+                    If now.node Is Nothing Then
+                        stack.Pop()
+                        Continue While
+                    End If
+                    now.status = 1
+                    stack.Pop()
+                    stack.Push(now)
+                    stack.Push(New ergodic(now.node.leftTree, 0))
+                Case 1
+                    now.status = 2
+                    stack.Pop()
+                    stack.Push(now)
+                    stack.Push(New ergodic(now.node.rightTree, 0))
+                Case 2
+                    CanvasForm.mark(now.node)
+                    Sleep(1000)
+                    now.node.labelOnCanvas.BackColor = Color.White
+                    stack.Pop()
+            End Select
+        End While
+    End Sub
+End Class
+
+Class ergodic
+    Public node As BiTreeNode
+    Public status As Int16
+    Public Sub New(ByRef node As BiTreeNode, ByVal status As Int16)
+        Me.node = node
+        Me.status = status
     End Sub
 End Class

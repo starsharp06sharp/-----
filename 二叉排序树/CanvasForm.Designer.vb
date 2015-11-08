@@ -34,6 +34,7 @@ Partial Class CanvasForm
         Me.Name = "CanvasForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "CanvasForm"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ResumeLayout(False)
 
     End Sub

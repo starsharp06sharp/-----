@@ -39,7 +39,7 @@ Public Class CanvasForm
     End Sub
 
     Public Sub mark(ByRef node As BiTreeNode)
-        node.labelOnCanvas.BackColor = Color.LightBlue
+        node.labelOnCanvas.BackColor = Color.Blue
     End Sub
 
     Public Sub clearMarked()
@@ -50,7 +50,7 @@ Public Class CanvasForm
         Next
     End Sub
 
-    Public Sub getSpace(ByRef node As BiTreeNode)
+    Private Sub getSpace(ByRef node As BiTreeNode)
         Me.Controls.Add(node.labelOnCanvas)
 
         If node.leftTree Is Nothing Then
@@ -68,7 +68,7 @@ Public Class CanvasForm
         End If
     End Sub
 
-    Public Sub outputTree(ByRef node As BiTreeNode)
+    Private Sub outputTree(ByRef node As BiTreeNode)
         If node Is AVLTree.root Then
             node.labelOnCanvas.Location = New Point(CInt((Me.Size.Width - node.labelOnCanvas.Size.Width + node.leftSpace - node.rightSpace) / 2), 0)
         End If
@@ -84,7 +84,7 @@ Public Class CanvasForm
         End If
     End Sub
 
-    Public Sub drawLines(ByRef node As BiTreeNode)
+    Private Sub drawLines(ByRef node As BiTreeNode)
         If Not node.leftTree Is Nothing Then
             lines.DrawLine(Pens.Black,
                            Convert.ToSingle(node.labelOnCanvas.Location.X + node.labelOnCanvas.Size.Width / 2),
@@ -104,5 +104,4 @@ Public Class CanvasForm
         End If
 
     End Sub
-
 End Class
