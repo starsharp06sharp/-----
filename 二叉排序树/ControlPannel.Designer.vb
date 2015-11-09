@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class ControlPannel
     Inherits System.Windows.Forms.Form
 
     'Form 重写 Dispose，以清理组件列表。
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class ControlPannel
     '注意: 以下过程是 Windows 窗体设计器所必需的
     '可以使用 Windows 窗体设计器修改它。  
     '不要使用代码编辑器修改它。
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtNumber = New System.Windows.Forms.TextBox()
@@ -30,9 +30,6 @@ Partial Class ControlPannel
         Me.btnReadFromFile = New System.Windows.Forms.Button()
         Me.ofdSelectTxt = New System.Windows.Forms.OpenFileDialog()
         Me.btnClear = New System.Windows.Forms.Button()
-        Me.btnPreOrder = New System.Windows.Forms.Button()
-        Me.btnMidOrder = New System.Windows.Forms.Button()
-        Me.btnAfterOrder = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -101,43 +98,13 @@ Partial Class ControlPannel
         Me.btnClear.Text = "Clear"
         Me.btnClear.UseVisualStyleBackColor = True
         '
-        'btnPreOrder
-        '
-        Me.btnPreOrder.Location = New System.Drawing.Point(12, 62)
-        Me.btnPreOrder.Name = "btnPreOrder"
-        Me.btnPreOrder.Size = New System.Drawing.Size(75, 23)
-        Me.btnPreOrder.TabIndex = 7
-        Me.btnPreOrder.Text = "前序"
-        Me.btnPreOrder.UseVisualStyleBackColor = True
-        '
-        'btnMidOrder
-        '
-        Me.btnMidOrder.Location = New System.Drawing.Point(118, 62)
-        Me.btnMidOrder.Name = "btnMidOrder"
-        Me.btnMidOrder.Size = New System.Drawing.Size(75, 23)
-        Me.btnMidOrder.TabIndex = 8
-        Me.btnMidOrder.Text = "中序"
-        Me.btnMidOrder.UseVisualStyleBackColor = True
-        '
-        'btnAfterOrder
-        '
-        Me.btnAfterOrder.Location = New System.Drawing.Point(223, 62)
-        Me.btnAfterOrder.Name = "btnAfterOrder"
-        Me.btnAfterOrder.Size = New System.Drawing.Size(75, 23)
-        Me.btnAfterOrder.TabIndex = 9
-        Me.btnAfterOrder.Text = "后序"
-        Me.btnAfterOrder.UseVisualStyleBackColor = True
-        '
         'ControlPannel
         '
         Me.AcceptButton = Me.btnAdd
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Window
-        Me.ClientSize = New System.Drawing.Size(307, 92)
-        Me.Controls.Add(Me.btnAfterOrder)
-        Me.Controls.Add(Me.btnMidOrder)
-        Me.Controls.Add(Me.btnPreOrder)
+        Me.ClientSize = New System.Drawing.Size(307, 62)
         Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.btnReadFromFile)
         Me.Controls.Add(Me.btnFind)
@@ -162,7 +129,4 @@ Partial Class ControlPannel
     Friend WithEvents btnReadFromFile As Button
     Friend WithEvents ofdSelectTxt As OpenFileDialog
     Friend WithEvents btnClear As Button
-    Friend WithEvents btnPreOrder As Button
-    Friend WithEvents btnMidOrder As Button
-    Friend WithEvents btnAfterOrder As Button
 End Class

@@ -39,7 +39,7 @@ Public Class CanvasForm
     End Sub
 
     Public Sub mark(ByRef node As BiTreeNode)
-        node.labelOnCanvas.BackColor = Color.Blue
+        node.labelOnCanvas.BackColor = Color.LightBlue
     End Sub
 
     Public Sub clearMarked()
