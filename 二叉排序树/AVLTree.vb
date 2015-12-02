@@ -66,6 +66,7 @@
             End If
             Dim max = findMax(node.leftTree)
             node.data = max.data
+            node.labelOnCanvas.BackColor = max.labelOnCanvas.BackColor
             node.labelOnCanvas.Text = node.data.ToString()
             If max IsNot node.leftTree Then
                 Dim parent = getParent(node.leftTree, max.data)
